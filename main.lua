@@ -18,11 +18,12 @@ end
     
     
 function love.update(dt)
+    tilemap_scroll(dt)
     keyp_keypress(dt)
 end
       
 function love.draw(dt)
-    tilemap_back_draw()
+    back_map_draw()
     player_draw()
     debug_draw()
 end

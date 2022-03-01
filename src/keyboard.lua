@@ -15,8 +15,10 @@ function player_movement(dt)
     dy = -1 
     if love.keyboard.isDown("lshift") then
       Player.afterburner = true
+      back_scroll_speed = 50
     else
       Player.afterburner = false
+      back_scroll_speed = 25
     end
   end
 
@@ -26,6 +28,7 @@ function player_movement(dt)
 	if love.keyboard.isDown("s") then 
     dy = 1 
     Player.afterburner = false
+    back_scroll_speed = 25
   end
 	if love.keyboard.isDown("d") then 
     dx = 1 

@@ -16,6 +16,7 @@ function debug_draw()
     love.graphics.print("Texture Mem:"..math.floor(stats.texturememory) / 100,    5, 45)
     love.graphics.print("Player X:"..Player.x,                                    5, 55)
     love.graphics.print("Player Y:"..Player.y,                                    5, 65)
+    love.graphics.print("Map Y:"..back_map_y,                                     5, 75)
     love.graphics.setColor(255, 255, 255)
   end
 end

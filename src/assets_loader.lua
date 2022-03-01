@@ -13,6 +13,8 @@ function assets_load()
 		back_tileset[i] = love.graphics.newImage("assets/tiles/tile_"..i..".png")
 	end
 
+    back_map_picture = love.graphics.newImage("assets/map/lvl_test.png")
+
     --planes loading
     planes_sprite = {}
     for i = 1, 24 do
