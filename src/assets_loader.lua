@@ -4,8 +4,6 @@ function assets_load()
     --font
     font8       = love.graphics.newFont("assets/font/PressStart2P-Regular.ttf", 8)
     font16      = love.graphics.newFont("assets/font/PressStart2P-Regular.ttf", 16)
-    kenfont     = love.graphics.newFont("assets/font/kenvector_future.ttf", 16)
-    kenfontthin = love.graphics.newFont("assets/font/kenvector_future_thin.ttf", 16)
 
     --menu background
     menu_background = love.graphics.newImage("assets/hud/menu.png")
@@ -29,6 +27,12 @@ function assets_load()
     afterburner_sound = love.audio.newSource("assets/sounds/engine_takeoff.wav", "static")
     afterburner_sound:setLooping(true)
 
+    --explosion sprite
+    explosion_sprite = {}
+    for i = 1, 4 do
+        explosion_sprite[i] = love.graphics.newImage("assets/explosion/explo_"..i..".png")
+    end
+
     --fire sound
     fire_sound = love.audio.newSource("assets/sounds/fire.mp3", "static")
 
@@ -37,6 +41,10 @@ function assets_load()
     main_theme:setLooping(true)
     menu_music = love.audio.newSource("assets/music/Map.wav", "stream")
     menu_music:setLooping(true)
+    pause_music = love.audio.newSource("assets/music/Map (basic version).wav", "stream")
+    pause_music:setLooping(true)
+    end_game_music = love.audio.newSource("assets/music/Warp Jingle.wav", "stream")
+    win_game_music = love.audio.newSource("assets/music/Win Jingle.wav", "stream")
 
     --hud loading
     --for i = 1, 10 do

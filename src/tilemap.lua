@@ -17,7 +17,7 @@ map_display_h = 44
 tile_h = 16
 tile_w = 16
 
-back_scroll_speed = 25
+back_scroll_speed = 50
 
 function tilemap_scroll(dt)
   back_map_y = back_map_y - back_scroll_speed * dt

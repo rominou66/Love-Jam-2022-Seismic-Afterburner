@@ -1,4 +1,4 @@
-local hud = {}
+local hud_src = {}
 
 function hud_init()
     Hud = {}
@@ -8,4 +8,4 @@ end
 function hud_draw()
 end
 
-return hud
+return hud_src

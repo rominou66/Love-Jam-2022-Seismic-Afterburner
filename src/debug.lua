@@ -17,7 +17,9 @@ function debug_draw()
     love.graphics.print("Player X:"..Player.x,                                    5, 55)
     love.graphics.print("Player Y:"..Player.y,                                    5, 65)
     love.graphics.print("Map Y:"..back_map_y,                                     5, 75)
-    love.graphics.setColor(255, 255, 255)
+    love.graphics.print("Score:"..Hud.score,                                      5, 85)
+    love.graphics.print("Player Health:"..Player.health,                          5, 95)
+    love.graphics.setColor(1, 1, 1)
   end
 end
 
