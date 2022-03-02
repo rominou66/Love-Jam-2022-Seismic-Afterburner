@@ -41,6 +41,7 @@ function love.update(dt)
         explo_anim(dt)
         update_collision()
         player_logic()
+        hud_update()
         screen_shake_update(dt)
     end
 

@@ -14,25 +14,24 @@ enemy_shake_duration    = 1
 player_shake_duration   = 4
 menu_shake_duration     = 0.5
 
-local t = 0
+local t_enemy = 0
+local t_player = 0
 
 function screen_shake_update(dt)
     if enemy_hit_shake == true then
-        if t < enemy_shake_duration then
-            t = t + dt
+        if t_enemy < enemy_shake_duration then
+            t_enemy = t_enemy + dt
         else
-            enemy_hit_shake = false
-            t = 0
+           enemy_hit_shake = false
+            t_enemy = 0 
         end
     end
     if player_hit_shake == true then
-        if t < player_shake_duration then
-            t = t + dt
-        end
-    end
-    if menu_shake == true then
-        if t < menu_shake_duration then
-            t = t + dt
+        if t_player < player_shake_duration then
+            t_player = t_player + dt
+        else
+            player_hit_shake = false
+            t_player = 0
         end
     end
 end
@@ -43,12 +42,12 @@ function screen_shake_draw()
         local dy = love.math.random(-after_shake_duration, after_shake_duration)
         love.graphics.translate(dx, dy)
     end
-    if t < enemy_shake_duration and enemy_hit_shake == true then
+    if t_enemy < enemy_shake_duration and enemy_hit_shake == true then
         local dx = love.math.random(-enemy_shake_duration, enemy_shake_duration)
         local dy = love.math.random(-enemy_shake_duration, enemy_shake_duration)
         love.graphics.translate(dx, dy)
     end
-    if t < player_shake_duration and player_hit_shake == true then
+    if t_player < player_shake_duration and player_hit_shake == true then
         local dx = love.math.random(-player_shake_duration, player_shake_duration)
         local dy = love.math.random(-player_shake_duration, player_shake_duration)
         love.graphics.translate(dx, dy)

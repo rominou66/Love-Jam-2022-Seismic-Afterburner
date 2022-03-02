@@ -25,6 +25,7 @@ function assets_load()
     --afterburner flame
     flame_sprite = love.graphics.newImage("assets/flame/flame.png")
     afterburner_sound = love.audio.newSource("assets/sounds/engine_takeoff.wav", "static")
+    afterburner_sound:setVolume(0.75)
     afterburner_sound:setLooping(true)
 
     --explosion sprite
@@ -32,9 +33,11 @@ function assets_load()
     for i = 1, 4 do
         explosion_sprite[i] = love.graphics.newImage("assets/explosion/explo_"..i..".png")
     end
+    explosion_sound = love.audio.newSource("assets/sounds/explodemini.wav", "static")
 
     --fire sound
     fire_sound = love.audio.newSource("assets/sounds/fire.mp3", "static")
+    fire_sound:setVolume(0.5)
 
     --music loading
     main_theme = love.audio.newSource("assets/music/Mercury.wav", "stream")
@@ -46,10 +49,16 @@ function assets_load()
     end_game_music = love.audio.newSource("assets/music/Warp Jingle.wav", "stream")
     win_game_music = love.audio.newSource("assets/music/Win Jingle.wav", "stream")
 
+    life_bar_sprite = {}
     --hud loading
-    --for i = 1, 10 do
-    --    hud_blue_sprite[i] = love.graphics.newImage("assets/hud/")
-    --end
+    for i = 1, 4 do
+        life_bar_sprite[i] = love.graphics.newImage("assets/hud/life_bar_"..i..".png")
+    end
+
+    number_sprite = {}
+    for i = 0, 10 do
+        number_sprite[i] = love.graphics.newImage("assets/hud/number_"..i..".png")
+    end
 end
 
 return assets_loader

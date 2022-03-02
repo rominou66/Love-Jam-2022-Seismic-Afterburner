@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <tileset version="1.4" tiledversion="1.4.3" name="tileset" tilewidth="16" tileheight="16" tilecount="30" columns="0">
  <grid orientation="orthogonal" width="1" height="1"/>
- <tile id="0">
+ <terraintypes>
+  <terrain name="New Terrain" tile="0"/>
+ </terraintypes>
+ <tile id="0" terrain=",,,0">
   <image width="16" height="16" source="../tiles/tile_1.png"/>
  </tile>
  <tile id="1">
@@ -16,13 +19,13 @@
  <tile id="4">
   <image width="16" height="16" source="../tiles/tile_5.png"/>
  </tile>
- <tile id="5">
+ <tile id="5" terrain=",,0,">
   <image width="16" height="16" source="../tiles/tile_6.png"/>
  </tile>
- <tile id="6">
+ <tile id="6" terrain="0,,,">
   <image width="16" height="16" source="../tiles/tile_7.png"/>
  </tile>
- <tile id="7">
+ <tile id="7" terrain=",0,,">
   <image width="16" height="16" source="../tiles/tile_8.png"/>
  </tile>
  <tile id="8">
