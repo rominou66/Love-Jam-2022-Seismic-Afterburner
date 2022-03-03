@@ -1,0 +1,14 @@
+name = "Love Jam 2022 Seismic Afterburner"
+default_targets = ["win64", "appimage","lovejs"]
+build_directory = "makelove-build"
+
+love_files = [
+    "+*",
+    "-*/.*",
+    "-./makelove-build/*",
+]
+
+icon_file = "icon.png"
+
+[lovejs]
+memory = "200000000"  # starting memory of the webpage (default is 20 MB)

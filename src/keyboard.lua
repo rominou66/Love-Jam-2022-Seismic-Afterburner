@@ -54,13 +54,14 @@ function player_movement(dt)
 end
 
 function key_fire()
-  if love.keyboard.isDown('space') and shoot_timer and In_Game == true then
+  if love.keyboard.isDown('space') and shoot_timer and In_Game == true and Hud.ammo > 0 then
     -- Create some bullet
     newBullet = {x = Player.x + 20, y = Player.y + 20, bullet_img}
     table.insert(bullets, newBullet)
     love.audio.play(fire_sound)
     shoot_timer = false
     can_shoot_timer = shoot_timer_max
+    Hud.ammo = Hud.ammo - 1
   end
 end
 

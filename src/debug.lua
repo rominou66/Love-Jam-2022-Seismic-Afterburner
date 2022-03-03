@@ -1,6 +1,6 @@
 local debug = {}
 
-debug_flag = true
+debug_flag = false
 
 function debug_draw()
   if debug_flag == true then
@@ -19,6 +19,9 @@ function debug_draw()
     love.graphics.print("Map Y:"..back_map_y,                                     5, 75)
     love.graphics.print("Score:"..Hud.score,                                      5, 85)
     love.graphics.print("Player Health:"..Player.health,                          5, 95)
+    love.graphics.print("Boss Mode:".. tostring(Boss_Mode),                       5, 105)
+    love.graphics.print("Boss Health:"..prev_all_boss_health,                     5, 115)
+    love.graphics.setFont(font16, 16)
     love.graphics.setColor(1, 1, 1)
   end
 end

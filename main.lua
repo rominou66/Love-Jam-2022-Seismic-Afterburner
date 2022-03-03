@@ -12,6 +12,7 @@ local collision     = require("src.collision")
 local explosion_src = require("src.explosion")
 local reset_src     = require("src.reset")
 local shake         = require("src.shake")
+local boss_src      = require("src.boss")
 
 function love.load(arg)
     love.graphics.setDefaultFilter('nearest', 'nearest')
@@ -21,6 +22,7 @@ function love.load(arg)
     --create an object player
     player_init()
     enemies_init()
+    boss_init()
     menu_music:play()
 end
     
@@ -36,7 +38,17 @@ function love.update(dt)
         tilemap_scroll(dt)
         bullet_timer_update(dt)
         bullet_update(dt)
-        spawn_enemies(dt)
+        if Boss_Mode == true then
+            main_theme:stop()
+            spawn_boss()
+            boss_update(dt)
+            boss_alive_check()
+            if not boss_intro_music:isPlaying() then
+                boss_music:play()
+            end  
+        else
+            spawn_enemies(dt)
+        end
         update_enemies(dt)
         explo_anim(dt)
         update_collision()
@@ -65,6 +77,9 @@ function love.draw(dt)
         screen_shake_draw()
         tilemap_back_draw()
         bullet_draw()
+        if Boss_Mode == true then
+            boss_mode_draw()
+        end
         draw_enemies()
         player_draw()
         explo_draw(dt)
@@ -83,7 +98,12 @@ function love.draw(dt)
     if End_Game == true then
         tilemap_back_draw()
         bullet_draw()
+        boss_mode_draw()
         draw_enemies()
+        explo_draw(dt)
+        if win == true then
+            player_draw()
+        end
         end_game_draw()
     end
     debug_draw()

@@ -21,6 +21,12 @@ function assets_load()
     end
     bomb_crosshair_img = love.graphics.newImage("assets/planes/crosshair.png")
     bullet_img = love.graphics.newImage("assets/planes/bullet_1.png")
+
+    --boss loading
+    boss_sprite = {}
+    for i = 1, 3 do
+        boss_sprite[i] = love.graphics.newImage("assets/planes/boss_"..i..".png")
+    end
     
     --afterburner flame
     flame_sprite = love.graphics.newImage("assets/flame/flame.png")
@@ -48,6 +54,9 @@ function assets_load()
     pause_music:setLooping(true)
     end_game_music = love.audio.newSource("assets/music/Warp Jingle.wav", "stream")
     win_game_music = love.audio.newSource("assets/music/Win Jingle.wav", "stream")
+    boss_intro_music = love.audio.newSource("assets/music/BossIntro.wav", "stream")
+    boss_music = love.audio.newSource("assets/music/BossMain.wav", "stream")
+    boss_music:setLooping(true)
 
     life_bar_sprite = {}
     --hud loading

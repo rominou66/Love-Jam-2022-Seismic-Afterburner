@@ -4,7 +4,7 @@ bullets = {}
 enemy_bullets = {}
 
 shoot_timer = true
-shoot_timer_max = 0.2
+shoot_timer_max = 0.3
 can_shoot_timer = shoot_timer_max
 bullet_collision_w = 5
 bullet_collision_h = 16
@@ -25,6 +25,14 @@ function bullet_draw()
         --love.graphics.rectangle("line", enemy_bullet.x + 5, enemy_bullet.y, bullet_collision_w, bullet_collision_h)
     end
     --love.graphics.setColor(1, 1, 1)
+    for i, boss_bullet in ipairs(boss_bullets) do
+        love.graphics.draw(bullet_img, boss_bullet.x, boss_bullet.y)
+
+        --debug collission box
+        --love.graphics.setColor(1,0.1,0.1)
+        --love.graphics.rectangle("line", boss_bullet.x + 5, boss_bullet.y, bullet_collision_w, bullet_collision_h)
+    end
+    --love.graphics.setColor(1, 1, 1)
 end
 
 function bullet_update(dt)
@@ -40,6 +48,13 @@ function bullet_update(dt)
     
         if enemy_bullet.y > 720 then -- remove bullets when they pass off the screen
           table.remove(enemy_bullets, i)
+        end
+    end
+    for i, boss_bullet in ipairs(boss_bullets) do
+        boss_bullet.y = boss_bullet.y + (250 * dt)
+    
+        if boss_bullet.y > 720 then -- remove bullets when they pass off the screen
+          table.remove(boss_bullets, i)
         end
     end
 end

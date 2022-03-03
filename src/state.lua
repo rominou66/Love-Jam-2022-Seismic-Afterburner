@@ -4,6 +4,8 @@ In_Game = false
 Pause = false
 Menu = true
 End_Game = false
+End_Game_Win = false
+Boss_Mode = false
 Ready_Timer = false
 
 return_key = false
@@ -44,7 +46,11 @@ function pause()
         In_Game = true
         Pause = false
         pause_music:stop()
-        main_theme:play()
+        if Boss_Mode == true then
+            boss_music:play()
+        else
+            main_theme:play()
+        end
         return_key = false
     end  
 end
@@ -60,9 +66,16 @@ function in_game()
     if return_key == true then
         Pause = true
         In_Game = false
+        if Boss_Mode == true then
+            boss_music:stop()
+        else
         main_theme:stop()
+        end
         pause_music:play()
         return_key = false
+    end
+    if Hud.score == 30 then
+        Boss_Mode = true
     end
 end
 
@@ -70,6 +83,7 @@ function end_game()
     In_Game = false
     Pause   = false
     main_theme:stop()
+    boss_music:stop()
     love.audio.stop(Player.aftsound)
     player_hit_shake = false
     if played == false then
@@ -89,9 +103,14 @@ end
 function end_game_draw()
     love.graphics.setFont(font16, 32)
     love.graphics.setColor(1,1,1,blink + 0.5)
-    love.graphics.print("Game Over", love.graphics.getWidth() / 2 - 35, love.graphics.getHeight() / 2 - 50 , 0)
-    love.graphics.setColor(1,1,1)
-    love.graphics.print("Score "..Hud.score, love.graphics.getWidth() / 2 - 40, love.graphics.getHeight() / 2 - 20 , 0)
+    if win == true then
+        love.graphics.print("Congratulation", love.graphics.getWidth() / 2 - 125, love.graphics.getHeight() / 2 - 50 , 0)
+        love.graphics.setColor(1,1,1)
+    else
+        love.graphics.print("Game Over", love.graphics.getWidth() / 2 - 75, love.graphics.getHeight() / 2 - 50 , 0)
+        love.graphics.setColor(1,1,1)
+    end
+    love.graphics.print("Score "..Hud.score, love.graphics.getWidth() / 2 - 55, love.graphics.getHeight() / 2 - 20 , 0)
     love.graphics.setColor(1,1,1)
 end
 
