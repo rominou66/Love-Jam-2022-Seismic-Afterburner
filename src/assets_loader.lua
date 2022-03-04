@@ -46,16 +46,16 @@ function assets_load()
     fire_sound:setVolume(0.5)
 
     --music loading
-    main_theme = love.audio.newSource("assets/music/Mercury.wav", "stream")
+    main_theme = love.audio.newSource("assets/music/Mercury.wav", "static")
     main_theme:setLooping(true)
-    menu_music = love.audio.newSource("assets/music/Map.wav", "stream")
+    menu_music = love.audio.newSource("assets/music/Map.wav", "static")
     menu_music:setLooping(true)
-    pause_music = love.audio.newSource("assets/music/Map (basic version).wav", "stream")
+    pause_music = love.audio.newSource("assets/music/Map (basic version).wav", "static")
     pause_music:setLooping(true)
-    end_game_music = love.audio.newSource("assets/music/Warp Jingle.wav", "stream")
-    win_game_music = love.audio.newSource("assets/music/Win Jingle.wav", "stream")
-    boss_intro_music = love.audio.newSource("assets/music/BossIntro.wav", "stream")
-    boss_music = love.audio.newSource("assets/music/BossMain.wav", "stream")
+    end_game_music = love.audio.newSource("assets/music/Warp Jingle.wav", "static")
+    win_game_music = love.audio.newSource("assets/music/Win Jingle.wav", "static")
+    boss_intro_music = love.audio.newSource("assets/music/BossIntro.wav", "static")
+    boss_music = love.audio.newSource("assets/music/BossMain.wav", "static")
     boss_music:setLooping(true)
 
     life_bar_sprite = {}

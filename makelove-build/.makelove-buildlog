@@ -8,5 +8,25 @@
             "lovejs"
         ],
         "completed": true
+    },
+    {
+        "version": "1.0",
+        "build_time": "Fri, 04 Mar 2022 12:07:52 +0800",
+        "targets": [
+            "win64",
+            "appimage",
+            "lovejs"
+        ],
+        "completed": true
+    },
+    {
+        "version": "1.0",
+        "build_time": "Fri, 04 Mar 2022 12:08:17 +0800",
+        "targets": [
+            "win64",
+            "appimage",
+            "lovejs"
+        ],
+        "completed": true
     }
 ]
