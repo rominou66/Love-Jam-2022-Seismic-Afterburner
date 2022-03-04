@@ -58,7 +58,6 @@ function assets_load()
     boss_music = love.audio.newSource("assets/music/BossMain.wav", "static")
     boss_music:setLooping(true)
 
-    
     life_bar_sprite = {}
     --hud loading
     for i = 1, 4 do
