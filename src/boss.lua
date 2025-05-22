@@ -75,9 +75,55 @@ function boss_alive_check()
     end
     prev_all_boss_health = all_boss_health
 
-    if prev_all_boss_health == 0 then
-        win = true
-        currdt = love.timer.getDelta()
+    if prev_all_boss_health == 0 and win == false then -- Added 'and win == false' to prevent re-triggering
+        win = true -- Set win to true, as the immediate condition (boss defeat) is met
+
+        if current_level_index == 1 then
+            -- Player defeated boss of Level 1, transition to Level 2
+            current_level_index = 2
+            Boss_Mode = false -- Turn off boss mode for the new level
+            
+            -- Reset game elements for Level 2.
+            player_init() 
+            enemies_init() 
+            
+            bullets = {} 
+            enemy_bullets = {} 
+            boss_bullets = {} 
+            enemies = {} 
+            explosions = {} 
+            bosses = {} 
+            boss_spawn = false 
+
+            back_map_y = 0 -- Reset map scroll for Level 2.
+
+            -- Music transition
+            boss_music:stop()
+            if boss_intro_music:isPlaying() then 
+                boss_intro_music:stop()
+            end
+            main_theme:play() 
+            
+            win = false -- Reset the 'win' flag for Level 2
+            
+            prevdt = 0 
+            timedt = 0 
+
+        elseif current_level_index == 2 then
+            -- Player defeated boss/completed Level 2
+            End_Game_Win = true 
+            
+            -- Use the existing timer logic for the final win screen display
+            currdt = love.timer.getDelta() 
+            timedt = currdt + prevdt 
+            if (timedt > 10) then 
+                End_Game = true
+            end
+            prevdt = timedt
+        end
+    elseif prev_all_boss_health == 0 and win == true and current_level_index == 2 then
+        -- This part is for the delay timer after Level 2 boss is defeated and 'win' is true.
+        currdt = love.timer.getDelta() 
         timedt = currdt + prevdt
         if (timedt > 10) then
             End_Game = true
@@ -85,4 +131,4 @@ function boss_alive_check()
         prevdt = timedt
     end
 end
-return boss_sr
+return boss_src -- Corrected from boss_sr to boss_src based on file start

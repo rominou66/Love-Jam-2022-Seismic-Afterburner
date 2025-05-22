@@ -1,5 +1,7 @@
 local states = {}
 
+current_level_index = 1
+
 In_Game = false
 Pause = false
 Menu = true

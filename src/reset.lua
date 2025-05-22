@@ -8,6 +8,7 @@ function reset_game()
     End_Game_Win = false
     Boss_Mode = false
     Ready_Timer = false
+    current_level_index = 1
     menu_shake = true
     boss_spawn = false
     boss_shake[1] = false
